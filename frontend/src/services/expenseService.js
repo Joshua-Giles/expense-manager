@@ -11,3 +11,14 @@ export const getAllExpenses = async () => {
     return [];
   }
 };
+
+export const addExpense = async (expense) => {
+  try {
+    const response = await axios.post(BASE_URL, expense);
+    return response.data;
+  } catch (error) {
+    console.error("Error adding expense:", error);
+    throw error;
+  }
+};
+
