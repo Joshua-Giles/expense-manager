@@ -1,0 +1,9 @@
+# Java / Eclipse
+/backend/target/
+/backend/.settings/
+/backend/.classpath
+/backend/.project
+
+# Node.js / React
+/frontend/node_modules/
+/frontend/.env
