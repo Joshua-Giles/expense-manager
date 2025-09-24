@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 
+const CATEGORIES = [
+  "GROCERIES","DINING","TRANSPORTATION","ENTERTAINMENT",
+  "HOUSING","UTILITIES","HEALTH","EDUCATION","SHOPPING","TRAVEL","OTHER"
+];
+
 function ExpenseForm({ onAddExpense }) {
   const [form, setForm] = useState({
     description: "",
     amount: "",
     date: "",
+    category: "OTHER",
   });
 
   const handleChange = (e) => {
@@ -14,7 +20,7 @@ function ExpenseForm({ onAddExpense }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     onAddExpense(form);
-    setForm({ description: "", amount: "", date: "" });
+    setForm({ description: "", amount: "", date: "", category: "OTHER" });
   };
 
   return (
@@ -63,12 +69,28 @@ function ExpenseForm({ onAddExpense }) {
           />
         </div>
 
-        <button
-          type="submit"
-          className="mt-2 inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white hover:bg-indigo-700 active:bg-indigo-800 transition"
-        >
-          Add Expense
-        </button>
+        <div className="grid gap-1 md:col-span-2">
+          <label className="text-sm font-medium text-slate-700">Category</label>
+          <select
+            name="category"
+            value={form.category}
+            onChange={handleChange}
+            className="rounded-lg border border-slate-300 px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500 bg-white"
+          >
+            {CATEGORIES.map((c) => (
+              <option key={c} value={c}>{c}</option>
+            ))}
+          </select>
+        </div>
+
+        <div className="md:col-span-2">
+          <button
+            type="submit"
+            className="mt-2 inline-flex items-center justify-center rounded-lg bg-indigo-600 px-4 py-2 font-medium text-white hover:bg-indigo-700 active:bg-indigo-800 transition"
+          >
+            Add Expense
+          </button>
+        </div>
       </form>
     </section>
   );
