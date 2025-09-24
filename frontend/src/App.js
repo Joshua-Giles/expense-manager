@@ -22,9 +22,10 @@ function App() {
         description: form.description,
         amount: parseFloat(form.amount),
         date: form.date,
+        category: form.category,
       };
       await addExpense(expense);
-      fetchExpenses(); // refresh
+      fetchExpenses();
     } catch (error) {
       alert("Failed to add expense.");
     }
