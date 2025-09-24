@@ -1,0 +1,6 @@
+package com.budget.entity;
+
+public enum Category {
+    GROCERIES, DINING, TRANSPORTATION, ENTERTAINMENT,
+    HOUSING, UTILITIES, HEALTH, EDUCATION, SHOPPING, TRAVEL, OTHER
+}

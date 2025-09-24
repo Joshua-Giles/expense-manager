@@ -8,6 +8,7 @@ public class ExpenseDto {
     private String    description;
     private double    amount;
     private LocalDate date;
+    private String category;
 
     public Long getId () {
         return id;
@@ -39,6 +40,14 @@ public class ExpenseDto {
 
     public void setDate ( final LocalDate date ) {
         this.date = date;
+    }
+
+    public String getCategory () {
+        return category;
+    }
+
+    public void setCategory ( final String category ) {
+        this.category = category;
     }
 
 }
